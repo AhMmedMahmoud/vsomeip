@@ -3,6 +3,9 @@ Build instructions for Hello World example
 
 1. Install dependencies
 ________________________________
+sudo apt-get update 
+sudo apt-get install net-tools cmake -y
+sudo apt-get install build-essential 
 sudo apt-get install libboost-system-dev libboost-thread-dev libboost-log-dev
 sudo apt-get install asciidoc source-highlight doxygen graphviz
 sudo apt-get install gcc g++ make
