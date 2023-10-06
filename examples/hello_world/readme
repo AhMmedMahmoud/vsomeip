@@ -1,25 +1,25 @@
-# Copyright (C) 2015-2017 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
 Build instructions for Hello World example
 ------------------------------------------
 
-1. Build whole project at first:
+1. Install dependencies
 ________________________________
-cd <root directory of vSomeIP-Lib>$:
+sudo apt-get install libboost-system-dev libboost-thread-dev libboost-log-dev
+sudo apt-get install asciidoc source-highlight doxygen graphviz
+sudo apt-get install gcc g++ make
+sudo ldconfig
 
+2. Build whole project at first:
+________________________________
+cd vsomeip
 mkdir build
 cd build
 cmake ..
 make
 sudo make install
 
-2. Build hello_world target
+3. Build hello_world target
 ___________________________
-cd <root directory of vSomeIP-Lib>/examples/hello_world$:
-
+cd ../examples/hello_world
 mkdir build
 cd build
 cmake ..
@@ -27,22 +27,18 @@ make
 
 Running Hello World Example
 ---------------------------
+in directory vsomeip/examples/hello_world/build
 
-The Hello World Example should be run on the same host.
-The network addresses within the configuration files need to be adapted to match
-the devices addresses.
-
-To start the hello world client and service from their build-directory do:
-
-HOST1:
+for server:
 VSOMEIP_CONFIGURATION=../helloworld-local.json \
 VSOMEIP_APPLICATION_NAME=hello_world_service \
 ./hello_world_service
 
-HOST1:
+for client:
 VSOMEIP_CONFIGURATION=../helloworld-local.json \
 VSOMEIP_APPLICATION_NAME=hello_world_client \
 ./hello_world_client
+
 
 Expected output service
 -----------------------
